@@ -1,0 +1,2 @@
+[global]
+index-url = https://<username>:<password>@libraries.cgr.dev/python/simple/

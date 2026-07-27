@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.env.local
+venv/
+pip.conf
+pip.conf-remediated
