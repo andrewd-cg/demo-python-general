@@ -1,7 +1,6 @@
-__pycache__/
-*.pyc
-.env
-.env.local
-venv/
+.venv/
 pip.conf
-pip.conf-remediated
+.netrc
+sync.sh
+.DS_Store
+pip.lock

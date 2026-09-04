@@ -1,16 +1,10 @@
-FROM python:3.13
+FROM python:latest
 
 WORKDIR /app
 
-RUN python -m venv venv
-ENV PATH="/app/venv/bin:$PATH"
+COPY requirements.txt .
+RUN pip install --timeout 60 --no-cache-dir -r requirements.txt
 
-COPY requirements.txt ./
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY app.py ./
-
-EXPOSE 3000
+COPY app.py .
 
 ENTRYPOINT ["python", "app.py"]
