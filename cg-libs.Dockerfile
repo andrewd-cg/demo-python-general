@@ -2,11 +2,11 @@ FROM cgr.dev/chainguard/python:latest-dev
 
 WORKDIR /app
 
-COPY pip.conf.cg /etc/pip.conf
-COPY --chmod=600 --chown=nonroot:nonroot .netrc /home/nonroot/.netrc
 ENV HOME=/home/nonroot
 COPY requirements.txt .
-RUN pip install --timeout 60 --no-cache-dir -r requirements.txt
+RUN --mount=type=secret,id=pip_conf,target=/etc/pip.conf,mode=0644 \
+    --mount=type=secret,id=netrc,target=/home/nonroot/.netrc,mode=0600,uid=65532 \
+    pip install --timeout 60 --no-cache-dir -r requirements.txt -v
 
 COPY app.py .
 
