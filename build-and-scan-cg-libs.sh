@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 
-docker pull cgr.dev/chainguard/python:latest-dev
+docker pull cgr.dev/chainguard-private/python:3.14-dev
 
 docker build --no-cache --progress=plain \
   --secret id=pip_conf,src=pip.conf \
